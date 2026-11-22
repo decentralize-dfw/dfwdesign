@@ -4,6 +4,10 @@ Metaverse için tasarlanan `armageddonseat-v17.glb` dilimli figür koltuğun, la
 birbirine geçerek monte edilen, cıvata detaylı metal versiyonu. Ayrıntılı rapor: `rapor.html`
 (etkileşimli 3D model, ergonomi, statik, BOM, montaj sırası).
 
+## Rev C
+- Üst gövde kalçadan 18° geriye yatırıldı ve %25 uzatıldı; figür dilimlerinden kurulan 3B hacim yeniden 25 mm'de dilimlendi. Yükseklik orijinal gibi ~1,29 m, göğüs oturanın sırtına paralel, baş baş desteği konumunda.
+- `rapor.html`: döndürülebilir model + animasyonlu patlatılmış görünüm (kesikli çizgiler: çubuk eksenleri ve kaburga→omurga yuvaları).
+
 ## Rev B
 - Oturak kısaltıldı: tüm dilimler orijinal yerinde (Rev A'daki 75 mm öne kaydırma ve ara dilimler kaldırıldı).
 - Kaburgalar orijinal dilim konturlarının 5 mm ofsetle kalınlaştırılmış hali; halkalar, kas çizgileri, mercek boşluklar korunuyor.
@@ -15,13 +19,13 @@ birbirine geçerek monte edilen, cıvata detaylı metal versiyonu. Ayrıntılı 
 | Malzeme | Al 6082-T651, 8 mm levha (fiber lazer / su jeti) |
 | Dilim adımı | 25 mm (orijinal ile aynı), 8 mm kaburga + 17 mm paslanmaz mesafe borusu |
 | Bağlantı | Oturak altında yarım-geçme yuvalı omurga laması (K01) + M12/M10/M8 A2 gergi çubukları, kep somunlar |
-| Ölçü | 729 × 1169 × 913 mm (G×Y×D) |
-| Oturma | ön 437 / arka 413 mm yükseklik, 385 mm derinlik, 431 mm genişlik, oturak–sırt ≈101° |
-| Ağırlık | ≈46 kg (37 kg levha + 9 kg bağlantı) |
-| Kesim | 61 parça, 2 levha 3000×1500 |
+| Ölçü | 763 × 1288 × 1038 mm (G×Y×D) |
+| Oturma | ön 437 / arka 413 mm yükseklik, 385 mm derinlik, oturak–sırt ≈104°, baş desteği ~1,15–1,25 m |
+| Ağırlık | ≈57 kg (47 kg levha + 10 kg bağlantı) |
+| Kesim | 74 parça, 3 levha 3000×1500 |
 
 ## Klasörler
-- `model/` montajlı ve patlatılmış GLB
+- `model/` montajlı GLB, parça parça GLB + `chair_parts.json` (patlatma animasyonu)
 - `dxf/` parça başına DXF (katmanlar: CUT, HOLES, ETCH) ve gösterge yerleşim dosyaları
 - `BOM.csv`, `summary.json` malzeme listesi ve hesap özetleri
 - `img/` render, ergonomi kesiti, yerleşim

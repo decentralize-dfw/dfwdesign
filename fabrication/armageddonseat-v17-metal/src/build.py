@@ -1,27 +1,30 @@
-from content import *
+from base import *
+Z=[z for z in np.round(np.arange(-0.6,0.45,0.025),4) if not reslice(z)[0].is_empty]
+base={z:dict(detail=[reslice(z)[0]],mass=[reslice(z)[1]]) for z in Z}
 from shapely.ops import nearest_points
 from shapely import affinity
 R=[]
 def rod(n,x,y,z0,z1,d): R.append(dict(name=n,x=x,y=y,z0=round(z0,4),z1=round(z1,4),d=d))
-ZR=-0.425; ZK=0.20
-KEEL=dict(x=0.0,y0=0.250,y1=0.340,ymid=0.300,z0=ZR,z1=ZK,tab=0.020,slot=T+0.0006,chamfer=0.0015)
+ZR=-0.50; ZK=0.20; ZA=(-0.525,-0.475)
+KEEL=dict(x=0.0,y0=0.240,y1=0.340,ymid=0.300,z0=ZR,z1=ZK,tab=0.020,slot=T+0.0006,chamfer=0.0015)
 for s in (-1,1):
-    rod(f'L{"1" if s<0 else "2"}',s*0.097,0.362,ZR,ZK,12); rod(f'L{"3" if s<0 else "4"}',s*0.167,0.362,ZR,ZK,12)
+    rod(f'L{"1" if s<0 else "2"}',s*0.097,0.362,ZA[0],ZK,12); rod(f'L{"3" if s<0 else "4"}',s*0.167,0.362,ZA[0],ZK,12)
 rod('L6',0.0,0.385,-0.175,0.15,12)
 def ellipse(cx,cy,a,b): return affinity.scale(Point(cx,cy).buffer(1,quad_segs=32),a,b)
 def curve_band(f,x0,x1,wd,n=40):
     xs=np.linspace(x0,x1,n); return LineString([(x,f(x)) for x in xs]).buffer(wd/2,cap_style=1,join_style=1)
 def bez(p0,p1,p2,n=24):
     t=np.linspace(0,1,n)[:,None]; return (1-t)**2*np.array(p0)+2*(1-t)*t*np.array(p1)+t**2*np.array(p2)
+FOOT={}
 def structure(z,g0):
     add=[]
     ysz=ys0(z)
     # rear girdle: arched band joining the arms (rear seat frame), ribs carrying the arms
-    if ZR-1e-6<=z<=-0.375+1e-6:
+    if ZA[0]-1e-6<=z<=ZA[1]+1e-6:
         add.append(curve_band(lambda x:0.335+0.030*(1-(x/0.33)**2),-0.33,0.33,0.044))
     # pelvis bone (ellipse) through which the seat rods pass
-    if -0.40<=z<=-0.20:
-        add.append(ellipse(0,0.360,0.215,0.040))
+    if -0.475-1e-6<=z<=-0.20:
+        add.append(ellipse(0,0.360,0.215,0.040).difference(ellipse(0,0.360,0.190,0.018)))
     # lap: bridge between thigh rings + curvy keel fin
     if -0.20<=z<=0.155:
         add.append(ellipse(0,ysz-0.028,0.115,0.030))
@@ -33,12 +36,12 @@ def structure(z,g0):
     if 0.175-1e-6<=z<=ZK+1e-6:
         add.append(curve_band(lambda x:0.300+0.022*(x/0.16)**2,-0.16,0.16,0.040))
     # arms reach the floor (rear legs): smooth taper of the forearm into a foot
-    if ZR-1e-6<=z<=-0.375+1e-6:
+    if ZA[0]-1e-6<=z<=ZA[1]+1e-6:
         for s in (-1,1):
             arm=U([c for c in geoms(g0) if abs(c.centroid.x)>0.24 and c.centroid.y<0.6 and c.centroid.x*s>0])
             if arm.is_empty: continue
             yb=arm.bounds[1]; low=arm.intersection(box(-1,yb,1,yb+0.07)); xc=low.centroid.x
-            add.append(U([low,ellipse(xc,0.010,0.024,0.010)]).convex_hull)
+            add.append(U([low,ellipse(xc,0.012,0.026,0.012)]).convex_hull); FOOT[(round(z,4),s)]=xc
     return U(add)
 def hollow(g,band=0.020):
     out=[]
@@ -48,17 +51,26 @@ def hollow(g,band=0.020):
         out.append(c.difference(U(wins)) if wins else c)
     return U(out)
 # ---- rods placed after geometry is known ----
-for k,(x,y) in enumerate([(0.299,0.24),(0.297,0.32),(0.288,0.40),(0.274,0.48)]):
-    for s in (-1,1): rod(f'A{"L" if s<0 else "R"}{k+1}',s*x,y,-0.425,-0.375,8)
-rod('B1',-0.19,0.72,-0.40,-0.275,10); rod('B2',0.19,0.72,-0.40,-0.275,10)
-rod('B3',-0.11,0.84,-0.40,-0.325,10); rod('B4',0.11,0.84,-0.40,-0.325,10)
-rod('B5',0.0,0.905,-0.425,-0.40,10)
-rod('H1',0.0,0.975,-0.475,-0.40,10); rod('H2',0.0,1.045,-0.475,-0.40,10)
+for k,(x,y) in enumerate([(0.306,0.38),(0.300,0.46),(0.286,0.54)]):
+    for s in (-1,1): rod(f'A{"L" if s<0 else "R"}{k+2}',s*x,y,ZA[0],ZA[1],8)
+rod('B1',-0.15,0.72,-0.475,-0.325,10); rod('B2',0.15,0.72,-0.475,-0.325,10)
+rod('B3',-0.15,0.87,-0.50,-0.40,10); rod('B4',0.15,0.87,-0.50,-0.40,10)
+rod('B5',0.0,1.03,-0.55,-0.475,10)
+rod('H1',0.0,1.12,-0.60,-0.50,10); rod('H2',0.0,1.20,-0.60,-0.50,10)
 for s in (-1,1):
     n='L' if s<0 else 'R'
-    rod(f'E{n}a',s*0.318,0.022,-0.425,-0.30,8); rod(f'E{n}b',s*0.348,0.022,-0.425,-0.30,8)
-    rod(f'F{n}a',s*0.120,0.022,0.20,0.40,8); rod(f'F{n}b',s*0.155,0.022,0.20,0.375,8)
-    for k,y in enumerate((0.12,0.21,0.29)): rod(f'S{n}{k+1}',s*0.138,y,0.20,0.25,8)
+    for k,y in enumerate((0.12,0.21,0.29)): rod(f'S{n}{k+1}',s*0.136,y,0.20,0.25,8)
+    rod(f'F{n}a',s*0.118,0.022,0.20,0.40,8); rod(f'F{n}b',s*0.153,0.022,0.20,0.375,8)
+def _feet():
+    for z in (ZA[1],):
+        g0=U(base[z]['detail']); structure(z,g0)
+    xs=[abs(v) for (z,s),v in FOOT.items()]
+    xc=float(np.mean(xs)) if xs else 0.31
+    for s in (-1,1):
+        n='L' if s<0 else 'R'
+        rod(f'E{n}a',s*(xc-0.010),0.020,ZA[0],-0.35,8); rod(f'E{n}b',s*(xc+0.018),0.020,ZA[0],-0.35,8)
+        rod(f'A{n}1',s*(xc-0.004),0.17,ZA[0],ZA[1],8)
+_feet()
 def rods_at(z): return [r for r in R if r['z0']-1e-6<=z<=r['z1']+1e-6]
 def boss_r(d): return {12:0.019,10:0.016,8:0.012}[d]
 def hole_d(d): return d/1000+0.0008
@@ -186,5 +198,6 @@ if __name__=='__main__':
     ribs=build_all()
     pending.clear(); [make_rib(z) for z in Z]
     print('pending',pending)
+    import pickle
     pickle.dump(dict(ribs=ribs,R=R,Z=Z,T=T,KEEL=KEEL,keel=keel_outline()),open('ribs_final.pkl','wb'))
     print('area',sum(ribs[z][0].area for z in Z))

@@ -1,78 +1,91 @@
 poz;tanım;malzeme;adet;not
-R01;Kaburga 51×121 mm;Al 6082-T651 8 mm;1;z=-475 mm
-R02;Kaburga 143×184 mm;Al 6082-T651 8 mm;1;z=-450 mm
-R03a;Kaburga parçası 720×563 mm;Al 6082-T651 8 mm;1;z=-425 mm
-R03b;Kaburga parçası 164×420 mm;Al 6082-T651 8 mm;1;z=-425 mm
-R04a;Kaburga parçası 720×736 mm;Al 6082-T651 8 mm;1;z=-400 mm
-R04b;Kaburga parçası 252×479 mm;Al 6082-T651 8 mm;1;z=-400 mm
-R05a;Kaburga parçası 704×583 mm;Al 6082-T651 8 mm;1;z=-375 mm
-R05b;Kaburga parçası 84×105 mm;Al 6082-T651 8 mm;1;z=-375 mm
-R05c;Kaburga parçası 272×477 mm;Al 6082-T651 8 mm;1;z=-375 mm
-R05d;Kaburga parçası 84×105 mm;Al 6082-T651 8 mm;1;z=-375 mm
-R06a;Kaburga parçası 527×326 mm;Al 6082-T651 8 mm;1;z=-350 mm
-R06b;Kaburga parçası 102×84 mm;Al 6082-T651 8 mm;1;z=-350 mm
-R06c;Kaburga parçası 430×157 mm;Al 6082-T651 8 mm;1;z=-350 mm
-R06d;Kaburga parçası 102×84 mm;Al 6082-T651 8 mm;1;z=-350 mm
-R07a;Kaburga parçası 515×350 mm;Al 6082-T651 8 mm;1;z=-325 mm
-R07b;Kaburga parçası 111×63 mm;Al 6082-T651 8 mm;1;z=-325 mm
-R07c;Kaburga parçası 430×157 mm;Al 6082-T651 8 mm;1;z=-325 mm
-R07d;Kaburga parçası 111×63 mm;Al 6082-T651 8 mm;1;z=-325 mm
-R08a;Kaburga parçası 514×436 mm;Al 6082-T651 8 mm;1;z=-300 mm
-R08b;Kaburga parçası 94×49 mm;Al 6082-T651 8 mm;1;z=-300 mm
-R08c;Kaburga parçası 430×164 mm;Al 6082-T651 8 mm;1;z=-300 mm
-R08d;Kaburga parçası 94×49 mm;Al 6082-T651 8 mm;1;z=-300 mm
-R09;Kaburga 430×524 mm;Al 6082-T651 8 mm;1;z=-275 mm
-R10;Kaburga 430×445 mm;Al 6082-T651 8 mm;1;z=-250 mm
-R11;Kaburga 430×184 mm;Al 6082-T651 8 mm;1;z=-225 mm
-R12;Kaburga 430×174 mm;Al 6082-T651 8 mm;1;z=-200 mm
-R13;Kaburga 372×176 mm;Al 6082-T651 8 mm;1;z=-175 mm
-R14;Kaburga 412×183 mm;Al 6082-T651 8 mm;1;z=-150 mm
-R15;Kaburga 418×183 mm;Al 6082-T651 8 mm;1;z=-125 mm
-R16;Kaburga 425×186 mm;Al 6082-T651 8 mm;1;z=-100 mm
-R17;Kaburga 430×189 mm;Al 6082-T651 8 mm;1;z=-75 mm
-R18;Kaburga 431×189 mm;Al 6082-T651 8 mm;1;z=-50 mm
-R19;Kaburga 426×192 mm;Al 6082-T651 8 mm;1;z=-25 mm
-R20;Kaburga 422×192 mm;Al 6082-T651 8 mm;1;z=0 mm
-R21;Kaburga 413×193 mm;Al 6082-T651 8 mm;1;z=25 mm
-R22;Kaburga 402×195 mm;Al 6082-T651 8 mm;1;z=50 mm
-R23;Kaburga 389×194 mm;Al 6082-T651 8 mm;1;z=75 mm
-R24;Kaburga 373×192 mm;Al 6082-T651 8 mm;1;z=100 mm
-R25;Kaburga 372×191 mm;Al 6082-T651 8 mm;1;z=125 mm
-R26;Kaburga 372×186 mm;Al 6082-T651 8 mm;1;z=150 mm
-R27a;Kaburga parçası 403×207 mm;Al 6082-T651 8 mm;1;z=175 mm
-R27b;Kaburga parçası 85×132 mm;Al 6082-T651 8 mm;1;z=175 mm
-R27c;Kaburga parçası 85×132 mm;Al 6082-T651 8 mm;1;z=175 mm
-R28;Kaburga 425×398 mm;Al 6082-T651 8 mm;1;z=200 mm
-R29a;Kaburga parçası 159×385 mm;Al 6082-T651 8 mm;1;z=225 mm
-R29b;Kaburga parçası 159×385 mm;Al 6082-T651 8 mm;1;z=225 mm
-R30a;Kaburga parçası 135×362 mm;Al 6082-T651 8 mm;1;z=250 mm
-R30b;Kaburga parçası 135×362 mm;Al 6082-T651 8 mm;1;z=250 mm
-R31a;Kaburga parçası 104×354 mm;Al 6082-T651 8 mm;1;z=275 mm
-R31b;Kaburga parçası 104×354 mm;Al 6082-T651 8 mm;1;z=275 mm
-R32a;Kaburga parçası 104×95 mm;Al 6082-T651 8 mm;1;z=300 mm
-R32b;Kaburga parçası 104×95 mm;Al 6082-T651 8 mm;1;z=300 mm
-R33a;Kaburga parçası 104×85 mm;Al 6082-T651 8 mm;1;z=325 mm
-R33b;Kaburga parçası 104×85 mm;Al 6082-T651 8 mm;1;z=325 mm
-R34a;Kaburga parçası 105×63 mm;Al 6082-T651 8 mm;1;z=350 mm
-R34b;Kaburga parçası 105×63 mm;Al 6082-T651 8 mm;1;z=350 mm
-R35a;Kaburga parçası 104×54 mm;Al 6082-T651 8 mm;1;z=375 mm
-R35b;Kaburga parçası 104×54 mm;Al 6082-T651 8 mm;1;z=375 mm
-R36a;Kaburga parçası 104×49 mm;Al 6082-T651 8 mm;1;z=400 mm
-R36b;Kaburga parçası 104×49 mm;Al 6082-T651 8 mm;1;z=400 mm
-K01;Omurga laması (geçmeli salma) 673×90 mm;Al 6082-T651 8 mm;1;yarım-geçme yuvalı
+R01a;Kaburga parçası 122×118 mm;Al 6082-T651 8 mm;1;z=-600 mm
+R01b;Kaburga parçası 18×95 mm;Al 6082-T651 8 mm;1;z=-600 mm
+R02;Kaburga 207×484 mm;Al 6082-T651 8 mm;1;z=-575 mm
+R03;Kaburga 262×513 mm;Al 6082-T651 8 mm;1;z=-550 mm
+R04a;Kaburga parçası 709×593 mm;Al 6082-T651 8 mm;1;z=-525 mm
+R04b;Kaburga parçası 181×270 mm;Al 6082-T651 8 mm;1;z=-525 mm
+R04c;Kaburga parçası 458×303 mm;Al 6082-T651 8 mm;1;z=-525 mm
+R05;Kaburga 709×1288 mm;Al 6082-T651 8 mm;1;z=-500 mm
+R06a;Kaburga parçası 704×1103 mm;Al 6082-T651 8 mm;1;z=-475 mm
+R06b;Kaburga parçası 70×91 mm;Al 6082-T651 8 mm;1;z=-475 mm
+R06c;Kaburga parçası 83×184 mm;Al 6082-T651 8 mm;1;z=-475 mm
+R06d;Kaburga parçası 70×91 mm;Al 6082-T651 8 mm;1;z=-475 mm
+R07a;Kaburga parçası 538×790 mm;Al 6082-T651 8 mm;1;z=-450 mm
+R07b;Kaburga parçası 96×72 mm;Al 6082-T651 8 mm;1;z=-450 mm
+R07c;Kaburga parçası 430×167 mm;Al 6082-T651 8 mm;1;z=-450 mm
+R07d;Kaburga parçası 96×72 mm;Al 6082-T651 8 mm;1;z=-450 mm
+R08a;Kaburga parçası 646×400 mm;Al 6082-T651 8 mm;1;z=-425 mm
+R08b;Kaburga parçası 112×55 mm;Al 6082-T651 8 mm;1;z=-425 mm
+R08c;Kaburga parçası 305×352 mm;Al 6082-T651 8 mm;1;z=-425 mm
+R08d;Kaburga parçası 294×339 mm;Al 6082-T651 8 mm;1;z=-425 mm
+R08e;Kaburga parçası 112×55 mm;Al 6082-T651 8 mm;1;z=-425 mm
+R09a;Kaburga parçası 763×461 mm;Al 6082-T651 8 mm;1;z=-400 mm
+R09b;Kaburga parçası 342×389 mm;Al 6082-T651 8 mm;1;z=-400 mm
+R10a;Kaburga parçası 643×251 mm;Al 6082-T651 8 mm;1;z=-375 mm
+R10b;Kaburga parçası 69×95 mm;Al 6082-T651 8 mm;1;z=-375 mm
+R10c;Kaburga parçası 116×315 mm;Al 6082-T651 8 mm;1;z=-375 mm
+R10d;Kaburga parçası 244×360 mm;Al 6082-T651 8 mm;1;z=-375 mm
+R10e;Kaburga parçası 69×95 mm;Al 6082-T651 8 mm;1;z=-375 mm
+R11a;Kaburga parçası 332×386 mm;Al 6082-T651 8 mm;1;z=-350 mm
+R11b;Kaburga parçası 96×85 mm;Al 6082-T651 8 mm;1;z=-350 mm
+R11c;Kaburga parçası 430×167 mm;Al 6082-T651 8 mm;1;z=-350 mm
+R11d;Kaburga parçası 96×85 mm;Al 6082-T651 8 mm;1;z=-350 mm
+R12a;Kaburga parçası 332×348 mm;Al 6082-T651 8 mm;1;z=-325 mm
+R12b;Kaburga parçası 430×167 mm;Al 6082-T651 8 mm;1;z=-325 mm
+R13;Kaburga 430×495 mm;Al 6082-T651 8 mm;1;z=-300 mm
+R14;Kaburga 430×413 mm;Al 6082-T651 8 mm;1;z=-275 mm
+R15;Kaburga 430×332 mm;Al 6082-T651 8 mm;1;z=-250 mm
+R16;Kaburga 430×226 mm;Al 6082-T651 8 mm;1;z=-225 mm
+R17;Kaburga 430×183 mm;Al 6082-T651 8 mm;1;z=-200 mm
+R18;Kaburga 382×189 mm;Al 6082-T651 8 mm;1;z=-175 mm
+R19;Kaburga 412×193 mm;Al 6082-T651 8 mm;1;z=-150 mm
+R20;Kaburga 416×193 mm;Al 6082-T651 8 mm;1;z=-125 mm
+R21;Kaburga 424×196 mm;Al 6082-T651 8 mm;1;z=-100 mm
+R22;Kaburga 428×198 mm;Al 6082-T651 8 mm;1;z=-75 mm
+R23;Kaburga 428×199 mm;Al 6082-T651 8 mm;1;z=-50 mm
+R24;Kaburga 424×201 mm;Al 6082-T651 8 mm;1;z=-25 mm
+R25;Kaburga 420×202 mm;Al 6082-T651 8 mm;1;z=0 mm
+R26;Kaburga 412×202 mm;Al 6082-T651 8 mm;1;z=25 mm
+R27;Kaburga 399×204 mm;Al 6082-T651 8 mm;1;z=50 mm
+R28;Kaburga 386×204 mm;Al 6082-T651 8 mm;1;z=75 mm
+R29;Kaburga 374×202 mm;Al 6082-T651 8 mm;1;z=100 mm
+R30;Kaburga 372×201 mm;Al 6082-T651 8 mm;1;z=125 mm
+R31;Kaburga 372×196 mm;Al 6082-T651 8 mm;1;z=150 mm
+R32a;Kaburga parçası 399×207 mm;Al 6082-T651 8 mm;1;z=175 mm
+R32b;Kaburga parçası 84×132 mm;Al 6082-T651 8 mm;1;z=175 mm
+R32c;Kaburga parçası 84×132 mm;Al 6082-T651 8 mm;1;z=175 mm
+R33;Kaburga 420×397 mm;Al 6082-T651 8 mm;1;z=200 mm
+R34a;Kaburga parçası 159×385 mm;Al 6082-T651 8 mm;1;z=225 mm
+R34b;Kaburga parçası 159×384 mm;Al 6082-T651 8 mm;1;z=225 mm
+R35a;Kaburga parçası 134×362 mm;Al 6082-T651 8 mm;1;z=250 mm
+R35b;Kaburga parçası 134×362 mm;Al 6082-T651 8 mm;1;z=250 mm
+R36a;Kaburga parçası 105×354 mm;Al 6082-T651 8 mm;1;z=275 mm
+R36b;Kaburga parçası 105×355 mm;Al 6082-T651 8 mm;1;z=275 mm
+R37a;Kaburga parçası 105×93 mm;Al 6082-T651 8 mm;1;z=300 mm
+R37b;Kaburga parçası 105×93 mm;Al 6082-T651 8 mm;1;z=300 mm
+R38a;Kaburga parçası 105×83 mm;Al 6082-T651 8 mm;1;z=325 mm
+R38b;Kaburga parçası 105×83 mm;Al 6082-T651 8 mm;1;z=325 mm
+R39a;Kaburga parçası 105×63 mm;Al 6082-T651 8 mm;1;z=350 mm
+R39b;Kaburga parçası 105×63 mm;Al 6082-T651 8 mm;1;z=350 mm
+R40a;Kaburga parçası 104×53 mm;Al 6082-T651 8 mm;1;z=375 mm
+R40b;Kaburga parçası 104×53 mm;Al 6082-T651 8 mm;1;z=375 mm
+R41a;Kaburga parçası 102×47 mm;Al 6082-T651 8 mm;1;z=400 mm
+R41b;Kaburga parçası 102×47 mm;Al 6082-T651 8 mm;1;z=400 mm
+K01;Omurga laması (geçmeli salma) 748×100 mm;Al 6082-T651 8 mm;1;yarım-geçme yuvalı
 ROD-M8x80;Dişli çubuk DIN 976-1 M8×80;A2-70 paslanmaz;8;
 ROD-M8x105;Dişli çubuk DIN 976-1 M8×105;A2-70 paslanmaz;2;
 ROD-M8x130;Dişli çubuk DIN 976-1 M8×130;A2-70 paslanmaz;4;
-ROD-M8x155;Dişli çubuk DIN 976-1 M8×155;A2-70 paslanmaz;4;
+ROD-M8x205;Dişli çubuk DIN 976-1 M8×205;A2-70 paslanmaz;4;
 ROD-M8x255;Dişli çubuk DIN 976-1 M8×255;A2-70 paslanmaz;4;
-ROD-M10x85;Dişli çubuk DIN 976-1 M10×85;A2-70 paslanmaz;1;
-ROD-M10x110;Dişli çubuk DIN 976-1 M10×110;A2-70 paslanmaz;4;
+ROD-M10x135;Dişli çubuk DIN 976-1 M10×135;A2-70 paslanmaz;3;
 ROD-M10x160;Dişli çubuk DIN 976-1 M10×160;A2-70 paslanmaz;2;
-ROD-M12x615;Dişli çubuk DIN 976-1 M12×615;A2-70 paslanmaz;1;
-ROD-M12x665;Dişli çubuk DIN 976-1 M12×665;A2-70 paslanmaz;4;
-SP-8;Mesafe borusu Ø14×2,5 × 17,0 mm (±0,05);AISI 304;94;uçlar alınmış, çapaksız
-SP-10;Mesafe borusu Ø16×2,5 × 17,0 mm (±0,05);AISI 304;24;uçlar alınmış, çapaksız
-SP-12;Mesafe borusu Ø20×3 × 17,0 mm (±0,05);AISI 304;123;uçlar alınmış, çapaksız
+ROD-M10x185;Dişli çubuk DIN 976-1 M10×185;A2-70 paslanmaz;2;
+ROD-M12x715;Dişli çubuk DIN 976-1 M12×715;A2-70 paslanmaz;1;
+ROD-M12x765;Dişli çubuk DIN 976-1 M12×765;A2-70 paslanmaz;4;
+SP-8;Mesafe borusu Ø14×2,5 × 17,0 mm (±0,05);AISI 304;102;uçlar alınmış, çapaksız
+SP-10;Mesafe borusu Ø16×2,5 × 17,0 mm (±0,05);AISI 304;34;uçlar alınmış, çapaksız
+SP-12;Mesafe borusu Ø20×3 × 17,0 mm (±0,05);AISI 304;143;uçlar alınmış, çapaksız
 NUT-8;Kep somun DIN 1587 M8;A2;44;+ pul DIN 125 A2 (44 ad.) + Loctite 243
 NUT-10;Kep somun DIN 1587 M10;A2;14;+ pul DIN 125 A2 (14 ad.) + Loctite 243
 NUT-12;Kep somun DIN 1587 M12;A2;10;+ pul DIN 125 A2 (10 ad.) + Loctite 243
