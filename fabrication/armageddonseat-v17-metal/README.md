@@ -4,6 +4,13 @@ Metaverse için tasarlanan `armageddonseat-v17.glb` dilimli figür koltuğun, la
 birbirine geçerek monte edilen, cıvata detaylı metal versiyonu. Ayrıntılı rapor: `rapor.html`
 (etkileşimli 3D model, ergonomi, statik, BOM, montaj sırası).
 
+## Rev D (üç yeni yaklaşım, Rev C korunuyor)
+Kural: sadece lazer kesim plakalar + M16 cıvata (pul, somun). Mesafe borusu ya da başka ek parça yok; aralık lazer kesim tarak/yarım-geçmelerden gelir. Oranlar orijinalle 1:1 (üst gövde 13° geriye yaslanmış).
+- **A · Halka** — orijinal ön dilimler; orta omurga laması, omuz tarakları, ayak ve el plakaları. 32 kaburga + 7 tarak, 7 × M16. `varyantlar/A`
+- **B · Hibrit** — gövde/bacaklar ön dilimli; oturak öne-arkaya uzanan 18 yan plakadan (rahat, sürekli kontur). 43 plaka, 9 × M16. `varyantlar/B`
+- **C · Izgara** — iki yönlü geçme ızgara; yan plakalar durur, ön plakalar yukarıdan iner. 33 plaka, 2 × M16. `varyantlar/C`
+- `rapor.html` + `models/`: dört varyant + orijinal; plastik sandalye ve oturan insanla kıyas; animasyonlu patlatma.
+
 ## Rev C
 - Üst gövde kalçadan 18° geriye yatırıldı ve %25 uzatıldı; figür dilimlerinden kurulan 3B hacim yeniden 25 mm'de dilimlendi. Yükseklik orijinal gibi ~1,29 m, göğüs oturanın sırtına paralel, baş baş desteği konumunda.
 - `rapor.html`: döndürülebilir model + animasyonlu patlatılmış görünüm (kesikli çizgiler: çubuk eksenleri ve kaburga→omurga yuvaları).
