@@ -5,10 +5,11 @@ birbirine geçerek monte edilen, cıvata detaylı metal versiyonu. Ayrıntılı 
 (etkileşimli 3D model, ergonomi, statik, BOM, montaj sırası).
 
 ## Rev D (üç yeni yaklaşım, Rev C korunuyor)
-Kural: sadece lazer kesim plakalar + M16 cıvata (pul, somun). Mesafe borusu ya da başka ek parça yok; aralık lazer kesim tarak/yarım-geçmelerden gelir. Oranlar orijinalle 1:1 (üst gövde 13° geriye yaslanmış).
-- **A · Halka** — orijinal ön dilimler; orta omurga laması, omuz tarakları, ayak ve el plakaları. 32 kaburga + 7 tarak, 7 × M16. `varyantlar/A`
-- **B · Hibrit** — gövde/bacaklar ön dilimli; oturak öne-arkaya uzanan 18 yan plakadan (rahat, sürekli kontur). 43 plaka, 9 × M16. `varyantlar/B`
-- **C · Izgara** — iki yönlü geçme ızgara; yan plakalar durur, ön plakalar yukarıdan iner. 33 plaka, 2 × M16. `varyantlar/C`
+Kural: sadece lazer kesim plakalar + M16 cıvata (pul, somun). Mesafe borusu ya da başka ek parça yok. Aralık ve hiza lazer kesim tarakların dişlerinden gelir; her tarağın yanındaki M16 cıvata plaka paketini sıkınca dişler sıkışıp kilitlenir. Bütün geçmeler dikey yarım-geçme, parçalar sırayla yukarıdan iner. Oranlar orijinalle 1:1 (üst gövde 13° geriye yaslanmış).
+- **A · Halka** — orijinal ön dilimler; orta omurga laması, omuz tarakları, ayak ve el plakaları. 39 parça, 7 × M16. `varyantlar/A`
+- **B · Hibrit** — gövde/bacaklar ön dilimli; oturak öne-arkaya uzanan 18 yan plakadan (sürekli oturma konturu). 43 parça, 9 × M16. `varyantlar/B`
+- **C · Kabuk** — figür çerçeve olarak duruyor; oturak + sırt tek parça 18 yan profil plaka figürün içine iner. 57 parça, 10 × M16. `varyantlar/C`
+- Üç varyant da otomatik çakışma kontrolünden temiz geçti (`src/v4/interf.py`: dik/paralel plakalar, `src/v4/clash.py`: cıvatalar).
 - `rapor.html` + `models/`: dört varyant + orijinal; plastik sandalye ve oturan insanla kıyas; animasyonlu patlatma.
 
 ## Rev C

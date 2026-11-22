@@ -9,14 +9,14 @@ def band_poly(sa,sb,ylo,yhi,tab=0.020,n=60):
     g=Polygon(top+bot)
     return close(opn(g,0.006),0.006)
 class Comb:
-    def __init__(self,name,pos,side,hosts,ylo,yhi,bolt_off=0.045,bolt=True,extra=None,floor=False,pad_w=0.022):
+    def __init__(self,name,pos,side,hosts,ylo,yhi,bolt_off=0.045,bolt=True,extra=None,floor=False,pad_w=0.022,bolt_v=None):
         self.name=name; self.pos=pos; self.side=side; self.hosts=sorted(hosts)
-        self.ylo=ylo; self.yhi=yhi; self.bolt_off=bolt_off; self.has_bolt=bolt; self.extra=extra; self.floor=floor; self.pad_w=pad_w
+        self.ylo=ylo; self.yhi=yhi; self.bolt_off=bolt_off; self.has_bolt=bolt; self.extra=extra; self.floor=floor; self.pad_w=pad_w; self.bolt_v=bolt_v
         self.sa=self.hosts[0]; self.sb=self.hosts[-1]
     def ymid(self,s): return 0.5*(self.ylo(s)+self.yhi(s))
     def bolt_uv(self):
-        s=(self.sa+self.sb)/2; return (self.pos+self.bolt_off, self.ymid(s))
-    def is_end(self,s): return abs(s-self.sa)<1e-6 or abs(s-self.sb)<1e-6
+        s=(self.sa+self.sb)/2; return (self.pos+self.bolt_off, self.ymid(s) if self.bolt_v is None else self.bolt_v)
+    def is_end(self,s): return False   # no closed windows: every joint is a vertical half-lap; the clamped stack pinches the comb teeth
     # ---- what each host receives ----
     def host_pad(self,s,host_mat):
         u=self.pos; lo,hi=self.ylo(s),self.yhi(s); pw=self.pad_w
@@ -45,17 +45,19 @@ class Comb:
         bu,bv=self.bolt_uv(); return Point(bu,bv).buffer(BOLT[16]['hole']/2,quad_segs=16)
     # ---- the comb plate itself (2D coords: s along the stack, y) ----
     def outline(self):
-        h=SLOT/2; tab=0.020
+        h=SLOT/2; tab=0.014
         g=band_poly(self.sa-T/2-tab,self.sb+T/2+tab,self.ylo,self.yhi)
-        if self.extra is not None: g=U([g,self.extra])
+        if self.extra is not None:
+            cols=U([box(s-T/2-0.005,-1,s+T/2+0.005,3) for s in self.hosts])
+            g=U([g,self.extra.difference(cols)])
         cuts=[]
-        for s in self.hosts[1:-1]:
+        for s in self.hosts:
             lo,hi,mid=self.ylo(s),self.yhi(s),self.ymid(s)
             if self.side=='below':
                 cuts.append(Polygon([(s-h,mid),(s+h,mid),(s+h,hi-CH),(s+h+CH,hi),(s+h+CH,hi+0.03),(s-h-CH,hi+0.03),(s-h-CH,hi),(s-h,hi-CH)]))
             else:
                 cuts.append(Polygon([(s-h,mid),(s+h,mid),(s+h,lo+CH),(s+h+CH,lo),(s+h+CH,lo-0.03),(s-h-CH,lo-0.03),(s-h-CH,lo),(s-h,lo+CH)]))
-        return close(g.difference(U(cuts)),0.0015) if cuts else g
+        return close(g,0.0015).difference(U(cuts)) if cuts else g
     def bolt(self,host_plane):
         bu,bv=self.bolt_uv()
         return dict(name='BOLT_'+self.name,d=16,axis='z' if host_plane=='z' else 'x',u=bu,v=bv,s0=self.sa-T/2,s1=self.sb+T/2,nutside=1)

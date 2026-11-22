@@ -196,6 +196,7 @@ def export(name,plates,bolts,joints,pose,steps,out_dir='out'):
         m=bolt_mesh(b); m.visual=mat('bolt',[214,214,220,255],0.9,0.3)
         sc.add_geometry(m,geom_name=b['name'],node_name=b['name']); meta['parts'].append(dict(name=b['name'],moves=b.get('moves',[])))
     sc.export(f'{out_dir}/{name}/model.glb'); json.dump(meta,open(f'{out_dir}/{name}/meta.json','w'))
+    import pickle; pickle.dump(dict(plates=[{k:p[k] for k in ('name','plane','pos','poly')} for p in plates],bolts=bolts),open(f'{out_dir}/{name}/plates.pkl','wb'))
     # DXF per plate + BOM
     area=0
     for p in plates:

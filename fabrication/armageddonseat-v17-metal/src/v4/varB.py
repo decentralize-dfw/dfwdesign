@@ -48,7 +48,7 @@ for sgn,n in ((-1,'L'),(1,'R')):
     tops=[(z,t) for z,t in tops if t is not None and t>0.75]
     zs=[z for z,_ in tops]
     a,b=np.polyfit([z for z,_ in tops],[t for _,t in tops],1)
-    lo=lambda s,a=a,b=b,m=max(t-(a*z+b) for z,t in tops):a*s+b+m+0.004
+    lo=lambda s,m=max(t for _,t in tops):m+0.004
     combs.append(Comb('Y'+n,xc,'above',zs,lo,lambda s,lo=lo:lo(s)+0.05,bolt_off=-0.048*sgn))
     # hand plate: side profile of the hand on the floor, under the arm ribs
     hx=0.33*sgn; hp=slice_fig(Figure(s=1.0,phi=13,kx=1.08,mode='filled'),'x',hx,(-0.45,-0.26)).intersection(box(-0.45,0,-0.26,0.085))
@@ -60,14 +60,14 @@ for sgn,n in ((-1,'L'),(1,'R')):
 figF=Figure(s=1.0,phi=13,kx=1.08,mode='filled')
 LAPX=[float(x) for x in np.round(np.arange(-0.2125,0.2126,0.025),4)]
 LO,HI=0.355,0.425
-lapcombs=[Comb('LP',PELVIS,'below',LAPX,lambda s:LO,lambda s:HI,bolt_off=-0.045,pad_w=0.02),
-          Comb('LK',KNEEP,'below',LAPX,lambda s:LO,lambda s:HI,bolt_off=0.045,pad_w=0.02)]
+lapcombs=[Comb('LP',PELVIS,'below',LAPX,lambda s:LO,lambda s:HI,bolt_off=0.016,pad_w=0.016,bolt_v=0.441),
+          Comb('LK',KNEEP,'below',LAPX,lambda s:LO,lambda s:HI,bolt_off=-0.016,pad_w=0.016,bolt_v=0.441)]
 def lap_plate(x):
     g=slice_fig(figF,'x',x,(-0.30,0.30)).intersection(box(-0.30,HI-0.005,0.30,0.70))
     strip=Polygon([(z,ys(z)+0.004) for z in np.linspace(env.ZBS-0.02,env.ZF+0.06,30)]+[(z,ys(z)-0.05) for z in np.linspace(env.ZF+0.06,env.ZBS-0.02,30)])
     g=U([g,strip,box(PELVIS-0.03,HI-0.005,KNEEP+0.03,HI+0.03)])
     e=slice_env(env,'x',x,(-0.30,0.30))
-    g=close(g,0.01).difference(e)
+    g=close(g,0.01).difference(e).intersection(box(PELVIS-0.0205,-1,KNEEP+0.017,2))
     g=hollow(g,band=0.02,keep=U([box(PELVIS-0.045,0,PELVIS+0.07,2),box(KNEEP-0.07,0,KNEEP+0.045,2)]),minwin=0.0005)
     pads=[c.host_pad(x,g) for c in lapcombs]; cuts=[c.host_cut(x) for c in lapcombs]; holes=[c.host_hole() for c in lapcombs]
     g=U([g]+pads); g=connect(g,pads,e)
@@ -75,7 +75,8 @@ def lap_plate(x):
     g=g.difference(U(cuts)).difference(U(holes))
     g=opn(g,0.0035).union(g.intersection(U(pads)))
     g=U([c for c in geoms(g) if c.area>8e-5 and c.intersects(U(pads).buffer(0.002))]).difference(U(cuts)).difference(U(holes))
-    return close(g,0.0015).intersection(box(-1,0,1,2)).simplify(0.0002,preserve_topology=True)
+    g=close(g,0.0015).intersection(box(-1,0,1,2)).simplify(0.0002,preserve_topology=True)
+    return g.difference(U(cuts)).difference(U(holes))
 def lap_comb_apply(z,g):
     for c in lapcombs:
         if abs(c.pos-z)<1e-6:
@@ -84,8 +85,7 @@ def lap_comb_apply(z,g):
             h=SLOT/2; cuts=[]
             for xs in c.hosts:
                 cuts.append(Polygon([(xs-h,c.ymid(0)),(xs+h,c.ymid(0)),(xs+h,HI-CH),(xs+h+CH,HI),(xs+h+CH,HI+0.03),(xs-h-CH,HI+0.03),(xs-h-CH,HI),(xs-h,HI-CH)]))
-            hb=c.bolt_uv()
-            g=g.difference(U(cuts))
+            g=close(g,0.0015).difference(U(cuts))
     return g
 # ---------------- ribs ----------------
 plates=[]; bolts=[]; joints=[]
@@ -124,8 +124,9 @@ def make_rib(z):
     g=opn(g,0.0035).union(g.intersection(U(pads)))
     g=U([c for c in geoms(g) if c.area>8e-5 and c.intersects(U(pads).buffer(0.002))])
     g=g.difference(U(cuts)).difference(U(holes))
+    g=close(g,0.0015).intersection(box(-1,0,1,2)).simplify(0.0002,preserve_topology=True)
     g=lap_comb_apply(z,g)
-    return close(g,0.0015).intersection(box(-1,0,1,2)).simplify(0.0002,preserve_topology=True)
+    return g.difference(U(cuts)).difference(U(holes))
 LIFT=0.30
 for i,z in enumerate(Z):
     g=make_rib(z)
@@ -160,7 +161,7 @@ steps=['Omurga laması K01, el plakaları HL/HR ve ayak plakaları FL/FR yere/se
        'Gövde, pelvis ve diz kaburgaları numara sırasıyla yukarıdan yuvalarına indirilir.',
        'Omuz tarakları YL/YR omuz dilleri üzerine oturtulur.',
        'Oturak plakaları S01–S18 pelvis ve diz kaburgalarının üst yuvalarına yukarıdan geçirilir.',
-       'M16 cıvatalar taraklann yanındaki deliklerden sürülür, pul + somun ile sıkılır.']
+       'M16 cıvatalar tarakların yanındaki deliklerden sürülür; torkla sıkılınca plakalar tarak dişlerini sıkıştırıp kilitler.']
 if __name__=='__main__':
     info=export('B',plates,bolts,joints,dict(env.pose(),footY=0.06,s=1.0),steps)
     print(info, 'ribs',len([p for p in plates if p['plane']=='z']))

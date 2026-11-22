@@ -46,7 +46,7 @@ for sgn,n in ((-1,'L'),(1,'R')):
     tops=[(z,t) for z,t in tops if t is not None and t>0.75]
     zs=[z for z,_ in tops]
     a,b=np.polyfit([z for z,_ in tops],[t for _,t in tops],1)
-    lo=lambda s,a=a,b=b,m=max(t-(a*z+b) for z,t in tops):a*s+b+m+0.004
+    lo=lambda s,m=max(t for _,t in tops):m+0.004
     combs.append(Comb('Y'+n,xc,'above',zs,lo,lambda s,lo=lo:lo(s)+0.05,bolt_off=-0.048*sgn))
     # hand plate: side profile of the hand on the floor, under the arm ribs
     hx=0.33*sgn; hp=slice_fig(Figure(s=1.0,phi=13,kx=1.08,mode='filled'),'x',hx,(-0.45,-0.26)).intersection(box(-0.45,0,-0.26,0.085))
@@ -91,7 +91,8 @@ def make_rib(z):
     g=opn(g,0.0035).union(g.intersection(U(pads)))
     g=U([c for c in geoms(g) if c.area>8e-5 and c.intersects(U(pads).buffer(0.002))])
     g=g.difference(U(cuts)).difference(U(holes))
-    return close(g,0.0015).intersection(box(-1,0,1,2)).simplify(0.0002,preserve_topology=True)
+    g=close(g,0.0015).intersection(box(-1,0,1,2)).simplify(0.0002,preserve_topology=True)
+    return g.difference(U(cuts)).difference(U(holes))
 LIFT=0.30
 for i,z in enumerate(Z):
     g=make_rib(z)
@@ -110,9 +111,9 @@ for c in combs:
             joints.append(dict(a=rib_of[h],b=c.name,p=[c.pos,c.ymid(h),h],k='slot'))
             joints.append(dict(a=rib_of[h],b=b['name'],p=[bu,bv,h],k='axis'))
 steps=['Omurga laması K01, el plakaları HL/HR ve ayak plakaları FL/FR yere/sehpaya dik konur (yuvalar yukarı).',
-       'Kaburgalar numara sırasıyla yukarıdan yuvalarına indirilir; uç kaburgalar taraklann uç dillerine geçer.',
+       'Kaburgalar numara sırasıyla yukarıdan yuvalarına indirilir; tarak dişleri kaburgaların arasına girer.',
        'Omuz tarakları YL/YR omuz dilleri üzerine yukarıdan oturtulur.',
-       'Her tarağın yanındaki M16 cıvata deliklerden sürülür, pul + somun ile sıkılır.']
+       'Her tarağın yanındaki M16 cıvata deliklerden sürülür; pul + somun ile torkla sıkılınca kaburgalar tarak dişlerini sıkıştırıp kilitler.']
 if __name__=='__main__':
     info=export('A',plates,bolts,joints,dict(env.pose(),footY=0.06,s=1.0),steps)
     print(info, 'ribs',len([p for p in plates if p['plane']=='z']))
