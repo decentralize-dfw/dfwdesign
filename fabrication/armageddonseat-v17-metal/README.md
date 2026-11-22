@@ -4,16 +4,21 @@ Metaverse için tasarlanan `armageddonseat-v17.glb` dilimli figür koltuğun, la
 birbirine geçerek monte edilen, cıvata detaylı metal versiyonu. Ayrıntılı rapor: `rapor.html`
 (etkileşimli 3D model, ergonomi, statik, BOM, montaj sırası).
 
+## Rev B
+- Oturak kısaltıldı: tüm dilimler orijinal yerinde (Rev A'daki 75 mm öne kaydırma ve ara dilimler kaldırıldı).
+- Kaburgalar orijinal dilim konturlarının 5 mm ofsetle kalınlaştırılmış hali; halkalar, kas çizgileri, mercek boşluklar korunuyor.
+- Ergonomik oyma kova biçiminde; sırt temas kenarları kıvrımlı kaburga bantları. Tüm ekler kıvrımlı, birleşimler R10.
+
 ## Özet
 | | |
 |---|---|
 | Malzeme | Al 6082-T651, 8 mm levha (fiber lazer / su jeti) |
 | Dilim adımı | 25 mm (orijinal ile aynı), 8 mm kaburga + 17 mm paslanmaz mesafe borusu |
 | Bağlantı | Oturak altında yarım-geçme yuvalı omurga laması (K01) + M12/M10/M8 A2 gergi çubukları, kep somunlar |
-| Ölçü | 776 × 1164 × 1013 mm (G×Y×D) |
-| Oturma | ön 435 / arka 408 mm yükseklik, 420 mm derinlik, 430 mm genişlik, oturak–sırt ≈105° |
-| Ağırlık | ≈48 kg (38 kg levha + 10 kg bağlantı) |
-| Kesim | 69 parça, 2 levha 3000×1500 |
+| Ölçü | 729 × 1169 × 913 mm (G×Y×D) |
+| Oturma | ön 437 / arka 413 mm yükseklik, 385 mm derinlik, 431 mm genişlik, oturak–sırt ≈101° |
+| Ağırlık | ≈46 kg (37 kg levha + 9 kg bağlantı) |
+| Kesim | 61 parça, 2 levha 3000×1500 |
 
 ## Klasörler
 - `model/` montajlı ve patlatılmış GLB

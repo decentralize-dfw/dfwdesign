@@ -145,7 +145,7 @@ M_k=P_seat*L_k/4; W_k=T*(K['ymid']-K['y0'])**2/6; s_k=M_k/W_k
 I_k=T*(K['ymid']-K['y0'])**3/12; dlt_k=P_seat*L_k**3/(48*E_al*I_k)
 # composite keel + 5 rods (steel n=2.86)
 A_k=T*(K['ymid']-K['y0']); y_k=(K['y0']+K['ymid'])/2
-A_r=4*84.3e-6+84.3e-6; y_r=(4*0.35+0.372)/5; n=200/70
+A_r=5*84.3e-6; y_r=(4*0.362+0.385)/5; n=200/70
 yc=(A_k*y_k+n*A_r*y_r)/(A_k+n*A_r); I_c=I_k+A_k*(y_k-yc)**2+n*A_r*(y_r-yc)**2
 dlt_c=1000*L_k**3/(48*E_al*I_c); s_c=M_k*(yc-K['y0'])/I_c
 # rear legs: 3 arm plates per side, narrowest width near floor

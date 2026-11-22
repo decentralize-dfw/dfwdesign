@@ -1,7 +1,7 @@
 import pickle,numpy as np,trimesh,warnings,os,sys;warnings.filterwarnings("ignore")
 EX=float(os.environ.get('EXPLODE','0'))
 from shapely.geometry import Polygon
-from ribs import geoms
+from base import geoms
 d=pickle.load(open('ribs_final.pkl','rb'));ribs=d['ribs'];R=d['R'];Z=d['Z'];T=d['T']
 scene=trimesh.Scene()
 plate=[];rods=[];spac=[];nuts=[]
@@ -30,9 +30,9 @@ kp=d['keel']
 km=trimesh.creation.extrude_polygon(kp,T)   # polygon in (z,y) -> extrude along +Z, then map
 v=km.vertices.copy(); km.vertices=np.c_[v[:,2]-T/2, v[:,1], v[:,0]]; km.fix_normals(); km.apply_translation([0,-1.6*EX,0]); plate.append(km)
 for zc in (kp.bounds[0]+0.010,kp.bounds[2]-0.010):   # M6 lock bolts across keel tabs
-    bb=trimesh.creation.cylinder(radius=0.003,height=0.03,sections=16); bb.apply_transform(trimesh.transformations.rotation_matrix(np.pi/2,[0,1,0])); bb.apply_translation([0,0.285,zc]); rods.append(bb)
+    bb=trimesh.creation.cylinder(radius=0.003,height=0.03,sections=16); bb.apply_transform(trimesh.transformations.rotation_matrix(np.pi/2,[0,1,0])); bb.apply_translation([0,0.295,zc]); rods.append(bb)
     for sx in (-1,1):
-        hh=trimesh.creation.cylinder(radius=0.0055,height=0.005,sections=6); hh.apply_transform(trimesh.transformations.rotation_matrix(np.pi/2,[0,1,0])); hh.apply_translation([sx*0.0065,0.285,zc]); nuts.append(hh)
+        hh=trimesh.creation.cylinder(radius=0.0055,height=0.005,sections=6); hh.apply_transform(trimesh.transformations.rotation_matrix(np.pi/2,[0,1,0])); hh.apply_translation([sx*0.0065,0.295,zc]); nuts.append(hh)
 def col(ms,rgba,name):
     m=trimesh.util.concatenate(ms); m.visual=trimesh.visual.ColorVisuals(m,face_colors=rgba)
     # PBR material
