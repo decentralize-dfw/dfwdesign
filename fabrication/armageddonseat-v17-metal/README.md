@@ -4,13 +4,12 @@ Metaverse için tasarlanan `armageddonseat-v17.glb` dilimli figür koltuğun, la
 birbirine geçerek monte edilen, cıvata detaylı metal versiyonu. Ayrıntılı rapor: `rapor.html`
 (etkileşimli 3D model, ergonomi, statik, BOM, montaj sırası).
 
-## Rev D (üç yeni yaklaşım, Rev C korunuyor)
-Kural: sadece lazer kesim plakalar + M16 cıvata (pul, somun). Mesafe borusu ya da başka ek parça yok. Aralık ve hiza lazer kesim tarakların dişlerinden gelir; her tarağın yanındaki M16 cıvata plaka paketini sıkınca dişler sıkışıp kilitlenir. Bütün geçmeler dikey yarım-geçme, parçalar sırayla yukarıdan iner. Oranlar orijinalle 1:1 (üst gövde 13° geriye yaslanmış).
-- **A · Halka** — orijinal ön dilimler; orta omurga laması, omuz tarakları, ayak ve el plakaları. 39 parça, 7 × M16. `varyantlar/A`
-- **B · Hibrit** — gövde/bacaklar ön dilimli; oturak öne-arkaya uzanan 18 yan plakadan (sürekli oturma konturu). 43 parça, 9 × M16. `varyantlar/B`
-- **C · Kabuk** — figür çerçeve olarak duruyor; oturak + sırt tek parça 18 yan profil plaka figürün içine iner. 57 parça, 10 × M16. `varyantlar/C`
-- Üç varyant da otomatik çakışma kontrolünden temiz geçti (`src/v4/interf.py`: dik/paralel plakalar, `src/v4/clash.py`: cıvatalar).
-- `rapor.html` + `models/`: dört varyant + orijinal; plastik sandalye ve oturan insanla kıyas; animasyonlu patlatma.
+## Rev E — figürün kendisi koltuk (üç poz varyasyonu)
+Oturak eklenmiyor: oturak figürün kucağı, sırt göğsü, arka ayaklar kolları, ön ayaklar bacakları. Orijinal figür eklemlerinden (kalça, diz, ayak bileği, omuz, dirsek, boyun) yeniden poz verildi; uzuv boyları ve oranlar orijinalle aynı, değişen yalnızca açılar ve bir varyantta toplam ölçek. Sadece lazer kesim plaka + M16 cıvata; aralık tarak dişleri ve yarım-geçmelerle, eğik uzuvların içinde lazer kesim kemik plakaları.
+- **V1 · Tezgah** — orijinal duruş 1:1, gövde 10°, baş 35° geride (baş desteği), ayak parmakları kalkık (ayak dayama). Oturak 55 cm. 35 parça, 7 × M16. `varyantlar/V1`
+- **V2 · Yemek** — %90 ölçek, baldırlar 15° öne, dirsekler geride bükülü. Oturak ~48 cm. 46 parça, 7 × M16. `varyantlar/V2`
+- **V3 · Uzanan** — %95 ölçek, gövde 14° geriye, bacaklar 28° öne uzanmış; oturanın baldırları figürün baldırlarına yaslanır. Oturak ~45 cm. 53 parça, 7 × M16. `varyantlar/V3`
+- Üçü de otomatik çakışma kontrolünden temiz geçti (`src/v4/interf.py`, `src/v4/clash.py`). Üretici: `src/v4/varP.py V1|V2|V3` (poz: `pose.py`, açılar: `poses2.json`).
 
 ## Rev C
 - Üst gövde kalçadan 18° geriye yatırıldı ve %25 uzatıldı; figür dilimlerinden kurulan 3B hacim yeniden 25 mm'de dilimlendi. Yükseklik orijinal gibi ~1,29 m, göğüs oturanın sırtına paralel, baş baş desteği konumunda.

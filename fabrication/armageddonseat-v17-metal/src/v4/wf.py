@@ -64,15 +64,15 @@ class Figure:
 
 # ---------------- sitter envelope (3D bucket) ----------------
 class Envelope:
-    def __init__(self,seat_y,zf,depth=0.40,tilt=4,recline=15,ks=0.30,kb=1.6,kh=4.0,lumbar=0.020,sacral=0.035,head_w=0.115):
+    def __init__(self,seat_y,zf,depth=0.40,tilt=4,recline=15,ks=0.30,kb=1.6,kh=4.0,lumbar=0.020,sacral=0.035,head_w=0.115,front_slope=0.5,drop_at=0.13):
         self.SY=seat_y; self.ZF=zf; self.ZBS=zf-depth; self.TILT=np.radians(tilt); self.REC=np.radians(recline)
-        self.KS=ks; self.KB=kb; self.KH=kh; self.LUM=lumbar; self.SAC=sacral; self.HW=head_w
+        self.KS=ks; self.KB=kb; self.KH=kh; self.LUM=lumbar; self.SAC=sacral; self.HW=head_w; self.FS=front_slope; self.DROP=drop_at
         self.YSR=float(self.ys(np.array([self.ZBS]))[0]); self.SH=self.YSR+0.58
     def ys(self,z):
         z=np.asarray(z,float); R=0.04
         y=self.SY-(self.ZF-np.minimum(z,self.ZF))*np.tan(self.TILT)
         d=np.clip(z-(self.ZF-R),0,R); y=y-np.where(z>self.ZF-R,R-np.sqrt(R*R-d*d),0)
-        y=y-np.where(z>self.ZF,(z-self.ZF)*0.5,0)-np.where(z>self.ZF+0.13,(z-self.ZF-0.13)*6,0)
+        y=y-np.where(z>self.ZF,(z-self.ZF)*self.FS,0)-np.where(z>self.ZF+self.DROP,(z-self.ZF-self.DROP)*6,0)
         return y
     def zb(self,y):
         y=np.asarray(y,float)

@@ -50,7 +50,7 @@ ol{margin:0;padding-left:1.3em;display:grid;gap:4px;font-size:.9rem}
 <div class="wrap">
   <header>
     <h1>Armageddon Metal Koltuk</h1>
-    <span class="sub">armageddonseat-v17 · lazer kesim 8 mm alüminyum · M16 cıvata</span>
+    <span class="sub">armageddonseat-v17 · figürün kendisi koltuk · lazer kesim 8 mm Al · M16 cıvata</span>
   </header>
   <div class="tabs" role="tablist" aria-label="Tasarım yaklaşımları" id="tabs"></div>
   <div class="stage" id="stage">
@@ -4142,9 +4142,9 @@ three/build/three.module.js:
 <script>
 (function(){
   var VARIANTS=[
-    {id:'A',label:'A · Halka',sub:'orijinal ön dilimler, taraklı geçme',parts:'39 lazer parça · 7 × M16 cıvata'},
-    {id:'B',label:'B · Hibrit',sub:'yandan dilimli rahat oturak',parts:'43 lazer parça · 9 × M16 cıvata'},
-    {id:'C',label:'C · Kabuk',sub:'oturak + sırt tek parça yan plakalar',parts:'57 lazer parça · 10 × M16 cıvata'},
+    {id:'V1',label:'1 · Tezgah',sub:'orijinal duruş 1:1, yüksek oturak, parmaklar ayak dayama',parts:'35 lazer parça · 7 × M16 cıvata'},
+    {id:'V2',label:'2 · Yemek',sub:'%90 ölçek, bacaklar öne, dirsekler geride',parts:'46 lazer parça · 7 × M16 cıvata'},
+    {id:'V3',label:'3 · Uzanan',sub:'geriye yaslanmış, bacaklar uzanmış, alçak oturak',parts:'53 lazer parça · 7 × M16 cıvata'},
     {id:'RC',label:'Rev C',sub:'önceki sürüm, borulu gergi',parts:'74 lazer parça · 34 gergi çubuğu · 241 boru · 68 kep somun'},
     {id:'O',label:'Orijinal',sub:'metaverse modeli',parts:'armageddonseat-v17.glb',recolor:true}
   ];
@@ -4180,6 +4180,6 @@ three/build/three.module.js:
   var humOn=true,cmpOn=true;v.setHuman(true);v.setCompare(true);
   hum.addEventListener('click',function(){humOn=!humOn;hum.setAttribute('aria-pressed',humOn);v.setHuman(humOn);});
   cmp.addEventListener('click',function(){cmpOn=!cmpOn;cmp.setAttribute('aria-pressed',cmpOn);v.setCompare(cmpOn);});
-  select('A');
+  select('V1');
 })();
 </script>
